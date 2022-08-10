@@ -19,6 +19,8 @@ services:
     environment: 
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
     ports: 
       - '8080:80'
     networks:
@@ -68,6 +70,11 @@ services:
     ports:
     - '1883:1883'
     - '9001:9001'
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+
 networks:
   goral_data_eng:
     driver: bridge
