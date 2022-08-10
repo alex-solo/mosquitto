@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">=1.0"
+  backend "local" {}
   required_providers {
     google = {
       source = "hashicorp/google"
@@ -8,5 +10,7 @@ terraform {
 }
 
 provider "google" {
-  # Configuration options
+  project = var.project
+  region = var.region
+  // credentials = file(var.credentials) # can use this instead of setting env variable export statement (export GCP_AQUASIGNUM_CREDENTIALS="")
 }
