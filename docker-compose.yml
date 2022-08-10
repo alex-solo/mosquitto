@@ -25,21 +25,21 @@ services:
       - '8080:80'
     networks:
       - goral_data_eng
-  sensor_1:
-    container_name: sensor_1
-    build:
-      context: ./sensor_1
-      dockerfile: Dockerfile
-    environment:
-      PYTHONUNBUFFERED: 1
-    ports:
-      - '5000:5000'
-    networks:
-      - goral_data_eng
-    volumes:
-      - ./sensor_1:/code
-    depends_on:
-      - mqtt
+  # sensor_1:
+  #   container_name: sensor_1
+  #   build:
+  #     context: ./sensor_1
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     PYTHONUNBUFFERED: 1
+  #   ports:
+  #     - '5000:5000'
+  #   networks:
+  #     - goral_data_eng
+  #   volumes:
+  #     - ./sensor_1:/code
+  #   depends_on:
+  #     - mqtt
   # sensor_2:
   #   container_name: sensor_2
   #   build:
@@ -55,21 +55,21 @@ services:
   #     - ./sensor_2:/code
   #   depends_on:
   #     - mqtt
-  mqtt:
-    container_name: mqtt
-    image: eclipse-mosquitto
-    restart: always
-    volumes: 
-      - ./mosquitto/config:/mosquitto/config
-      - ./mosquitto/data:/mosquito/data
-      - ./mosquitto/log:/mosquito/log
-    networks:
-      - goral_data_eng
-    expose:
-      - 1883
-    ports:
-    - '1883:1883'
-    - '9001:9001'
+  # mqtt:
+  #   container_name: mqtt
+  #   image: eclipse-mosquitto
+  #   restart: always
+  #   volumes: 
+  #     - ./mosquitto/config:/mosquitto/config
+  #     - ./mosquitto/data:/mosquito/data
+  #     - ./mosquitto/log:/mosquito/log
+  #   networks:
+  #     - goral_data_eng
+  #   expose:
+  #     - 1883
+  #   ports:
+  #   - '1883:1883'
+  #   - '9001:9001'
 
 volumes:
   local_pgdata:
