@@ -4,7 +4,7 @@ locals {
 
 resource "google_storage_bucket" "data-lake-bucket" {
   name          = "${local.data_lake_bucket}_${var.project}"
-  location      = var.location
+  location      = var.region
   force_destroy = true
 
   uniform_bucket_level_access = true
